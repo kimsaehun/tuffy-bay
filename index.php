@@ -1,7 +1,7 @@
 <?php
   $title = 'Tuffy Bay';
   $css_file = 'bootstrap.min.css';
-  include 'php/html_header.phtml';
+  include 'php/phtml/html_header.phtml';
 ?>
 
 <header>
@@ -53,11 +53,11 @@
 
 
     <div>
-      <img src="_IMG/TuffyBay_Banner_v1.png" width="1326px" height="496px" />
+      <img src="res/img/TuffyBay_Banner_v1.png" width="1326px" height="496px" />
     </div>
     <div>
-      <img src="_IMG/1072671_pr_disaster-relief_gw_desktop_sidekick_264x170._CB515367141_.png" alt="Donate to Disaster Relief efforts" width="264px" height="170px" /><hr />
-      <div><img src="_IMG/Tuffy_computer_small.JPG" width="264px" height="170px" />
+      <img src="res/img/1072671_pr_disaster-relief_gw_desktop_sidekick_264x170._CB515367141_.png" alt="Donate to Disaster Relief efforts" width="264px" height="170px" /><hr />
+      <div><img src="res/img/Tuffy_computer_small.JPG" width="264px" height="170px" />
         <div>Get fast, free shipping with TuffyBay</div>
       </div>
     </div>
@@ -87,4 +87,4 @@
     </table>
 </div>
 
-<?php include 'php/html_footer.phtml'; ?>
+<?php include 'php/phtml/html_footer.phtml'; ?>
