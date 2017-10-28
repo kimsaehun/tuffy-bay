@@ -1,9 +1,8 @@
 <?php
   $title = 'Tuffy Bay';
   $css_file = 'bootstrap.min.css';
-  include 'php/phtml/html_header.phtml';
+  include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
 ?>
-
 <header>
   <!--DEPARTMENT NAVIGATION-->
   <div role="navigation">
@@ -87,4 +86,4 @@
     </table>
 </div>
 
-<?php include 'php/phtml/html_footer.phtml'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_footer.phtml'; ?>
