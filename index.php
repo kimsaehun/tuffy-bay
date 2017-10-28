@@ -1,5 +1,6 @@
 <?php
   $title = 'Tuffy Bay';
+  $css_file = 'bootstrap.min.css';
   include 'php/html_header.phtml';
 ?>
 
