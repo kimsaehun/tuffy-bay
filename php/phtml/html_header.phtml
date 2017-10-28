@@ -3,7 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title><?php echo $title ?></title>
-  <link rel="stylesheet" href="css/<?php echo $css_file ?>">
+  <?php
+    foreach($css_files as $file) { ?>
+      <link rel="stylesheet" href="css/<?php echo $file; ?>">
+    <?php }
+  ?>
 </head>
 <body>
 <?php include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/toolbar.phtml'; ?>
