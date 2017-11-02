@@ -11,5 +11,9 @@
       // display the price
       item_desc[3].innerHTML = "$" + (quantity * base_price);
     });
+
+    // default value for quantity is 1
+    item_desc[1].value = 1;
+    item_desc[1].dispatchEvent(new Event('input'));
   }
 })();
