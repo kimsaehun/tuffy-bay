@@ -9,7 +9,7 @@
       // get base price in type double
       let base_price = parseFloat(item_desc[2].textContent);
       // display the price
-      item_desc[3].innerHTML = "$" + (quantity * base_price);
+      item_desc[3].innerHTML = "$" + (quantity * base_price).toFixed(2);;
     });
 
     // default value for quantity is 1
