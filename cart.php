@@ -10,6 +10,7 @@ include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
 <div class="item-card">
   <span class="name">Item Name</span>
   <input type="number" name="quantity" min="1">
+  <span class="base-price">9.99</span>
   <span class="price">$9.99</span>
 </div>
 <div id="purchase-btn">
@@ -22,7 +23,7 @@ include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
 </div>
 <?php
 $js_files = array(
-  # put js files here
+  "cart.js"
 );
 include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_footer.phtml';
 ?>
