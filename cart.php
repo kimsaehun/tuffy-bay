@@ -1,7 +1,7 @@
 <?php
 $title = 'Shopping Cart'; # Enter title of page
 $css_files = array(
-  # put css files here
+  "cart.css"
 );
 include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
 ?>
