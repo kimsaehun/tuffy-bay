@@ -6,18 +6,33 @@ $css_files = array(
 include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
 ?>
 <h3>Shopping Cart</h3>
+
 <p>Your shopping cart is empty.</p>
-<div class="item-card">
-  <span class="name">Item Name</span>
-  <input type="number" name="quantity" min="1">
-  <span class="base-price">9.00</span>
-  <span class="price"></span>
-</div>
-<div id="purchase-btn">
-  <span>Purchase</span>
-</div>
+
+<form action="" method="post">
+  <div class="item-card">
+    <input type="hidden" name="item-id-1" value="1">
+    <span class="name">Item #1</span>
+    <input type="number" name="quantity-1" min="1">
+    <span class="base-price">9.00</span>
+    <span class="price"></span>
+  </div>
+  <div class="item-card">
+    <input type="hidden" name="item-id-2" value="2">
+    <span class="name">Item #2</span>
+    <input type="number" name="quantity-2" min="1">
+    <span class="base-price">6.50</span>
+    <span class="price"></span>
+  </div>
+  <div id="purchase-btn">
+    <button type="submit">Buy Now!</button>
+  </div>
+</form>
+
 <h3>Wishlist</h3>
+
 <p>Your wishlist is empty</p>
+
 <div class="wish-card">
   <span class="name">Item Name</span>
 </div>
