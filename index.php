@@ -16,7 +16,7 @@ $css_files = array(
   'bootstrap.min.css',
   'index.css'
 );
-include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
+include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_header.phtml';
 ?>
 <header>
   <!--DEPARTMENT NAVIGATION-->
@@ -79,7 +79,29 @@ include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
   </div>
 </header>
 
+<!--ITEMS DISPLAY-->
+<div style="margin: 0px auto; width: 90%">
+	<h1 style="text-align: center">Available Items: </h1>
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th># in stock</th>
+			<th>Price</th>
+			<th>Description</th>
+		</tr>
+	<?php $inv_items = $tuffy_inventory->inventory_display(); ?>
+	<?php foreach($inv_items as $item): ?>
+		<tr>
+			<td><?php echo $item['name']?></td>
+			<td><?php echo $item['count']?></td>
+			<td>$<?php echo $item['price']?></td>
+			<td><?php echo $item['description']?></td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+</div>
+
 <?php
 $js_files = array();
-include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_footer.phtml';
+include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_footer.phtml';
 ?>
