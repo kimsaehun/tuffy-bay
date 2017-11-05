@@ -3,7 +3,7 @@ $title = 'Shopping Cart'; # Enter title of page
 $css_files = array(
   "cart.css"
 );
-include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
+include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_header.phtml';
 ?>
 <h3>Shopping Cart</h3>
 
@@ -40,5 +40,5 @@ include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
 $js_files = array(
   "cart.js"
 );
-include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_footer.phtml';
+include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_footer.phtml';
 ?>
