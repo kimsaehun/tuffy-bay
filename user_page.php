@@ -27,7 +27,7 @@ else if (isset($_POST['delete_item']))
 </head>
 <body>
 <div>
-	<img src="_IMG/TuffyBay_Banner_v1.png" width="1326px" height="396px" />
+	<img src="res/img/TuffyBay_Banner_v1.png" width="1326px" height="396px" />
 </div>
 
 <!--USER INFO AND ACTION LINKS-->
