@@ -416,8 +416,9 @@
 			//update items in inventory
 			foreach ($items as $item)
 			{
+				//if not enough stock
 				$item_db = $this->inventory_get_item($item['id']);
-				if ($item['count'] > $item_db['count'])
+				if ($item['in_cart_count'] > $item_db['count'])
 				{
 					return false;
 				}
@@ -483,6 +484,24 @@
 
 			if ($updateResult){return true;}
 			return false;
+		}
+
+		function delete_cart_count($user_id, $item_id)
+		{
+
+			$deleteQ = "DELETE FROM ".SHOPCART_TABLE." WHERE user_id = '$user_id' AND item_id = '$item_id'";
+			$deleteResult = $this->conn->query($deleteQ);
+
+			if ($deleteResult){return true;}
+			return false;
+		}
+
+		function get_cart_count($user_id, $item_id)
+		{
+			$selectQ = "SELECT COUNT(*) FROM ".SHOPCART_TABLE." WHERE user_id = '$user_id' AND item_id = '$item_id'";
+			$selectResult = $this->conn->query($selectQ);
+
+			var_dump ($selectResult);
 		}
 	}
 

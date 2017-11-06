@@ -18,7 +18,7 @@ if(!$tuffy_user->is_loggedin())
 
   $cart = $tuffy_inventory->display_cart($_SESSION['user']['id']);
   $total_price = 0.00;
-
+  $not_enough_stock = false;
 
   if (isset($_POST['order_cart']))
   {
@@ -32,6 +32,11 @@ if(!$tuffy_user->is_loggedin())
   else if(isset($_POST['update_quan']))
   {
     $tuffy_inventory->update_cart_count($_SESSION['user']['id'], $_POST['item_id'], $_POST['quantity']);
+    $cart = $tuffy_inventory->display_cart($_SESSION['user']['id']);
+  }
+  else if (isset($_POST['delete_shop_item']))
+  {
+    $tuffy_inventory->delete_cart_count($_SESSION['user']['id'], $_POST['item_id']);
     $cart = $tuffy_inventory->display_cart($_SESSION['user']['id']);
   }
   include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_header.phtml';
@@ -51,7 +56,17 @@ if(!$tuffy_user->is_loggedin())
     <input type="number" name="quantity" min="1" value = "<?php echo $item['in_cart_count']; ?>">
     <input hidden type="number" name="item_id" value = "<?php echo $item['id']; ?>">
     <button type = "submit" name = "update_quan">update</button>
+    <button type ="submit" name = "delete_shop_item">delete</button>
     <span>price: $<?php echo $item['price']; ?></span>
+
+    <?php 
+
+    if ($item['in_cart_count'] > $item['stock_count'])
+    {
+      $not_enough_stock = true;
+      echo "<span style='color:red'>(CANNOT PURCHASE: we currently only have ".$item['stock_count']." of these in stock)</span>";
+    }
+    ?>
 
     <!--easier to do this through php for now-->
     <span class="base-price"></span>
@@ -65,7 +80,7 @@ if(!$tuffy_user->is_loggedin())
 <form method="post">
   <div id="purchase-btn">
     <input hidden name="total_price" value = "<?php echo $total_price; ?>">
-    <button type="submit" name="order_cart">Buy Now!</button>
+    <button <?php if ($not_enough_stock){echo "disabled"; }?> type="submit" name="order_cart">Buy Now!</button>
   </div>
 </form>
 <?php endif; ?>
