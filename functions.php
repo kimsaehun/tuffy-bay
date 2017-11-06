@@ -444,7 +444,7 @@
 			$user_info = mysqli_fetch_assoc($selectResult);			
 
 			//if not enough money
-			if ($total > $user_info['money'])
+			if ($total > $user_info['money'] && !isset($_POST['use_credit_card']))
 			{
 				$this->not_enough_money = true;
 				return false;
@@ -473,9 +473,12 @@
 				$this->insert_order($user_id, $item, $payment_used);
 
 				//decrease user money
-				$new_user_money = $user_info['money'] - $total;
-				$updateMoney = "UPDATE ".USERS_TABLE." SET money = '$new_user_money' WHERE id = ".$user_id;
-				$this->conn->query($updateMoney);
+				if(!isset($_POST['use_credit_card']))
+				{
+					$new_user_money = $user_info['money'] - $total;
+					$updateMoney = "UPDATE ".USERS_TABLE." SET money = '$new_user_money' WHERE id = ".$user_id;
+					$this->conn->query($updateMoney);
+				}
 			}
 
 		}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2017 at 07:03 AM
+-- Generation Time: Nov 06, 2017 at 09:11 PM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -59,20 +59,20 @@ CREATE TABLE `ordered_items` (
   `description` text,
   `date_arrived` datetime DEFAULT NULL,
   `has_arrived` bit(1) NOT NULL DEFAULT b'0',
-  `date_ordered` datetime NOT NULL
+  `date_ordered` datetime NOT NULL,
+  `payment_used` varchar(128) NOT NULL,
+  `return_request` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `returns`
+-- Table structure for table `return_requests`
 --
 
-CREATE TABLE `returns` (
+CREATE TABLE `return_requests` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL COMMENT 'The user returning the item',
-  `inventory_id` int(11) DEFAULT NULL COMMENT 'The type of item being returned',
-  `why_return` text COMMENT 'a small description why the user wants to return it'
+  `order_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -100,15 +100,17 @@ CREATE TABLE `users` (
   `password` varchar(128) NOT NULL,
   `type` int(11) NOT NULL DEFAULT '0' COMMENT 'Type 0 - Normal users',
   `email` varchar(255) NOT NULL,
-  `money` decimal(10,2) NOT NULL DEFAULT '0.00'
+  `money` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `credit_card_num` varchar(16) DEFAULT NULL COMMENT 'credit card #',
+  `credit_card_security` int(11) DEFAULT NULL COMMENT 'credit card security code'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `type`, `email`, `money`) VALUES
-(10, 'admin_user', '$2y$10$eOBIFQMIC7PdbWY/IzKXTusLsphxMI/.eD5L7wLYBlnagPhjK/IEe', 1, 'admin_user@tuffybay.com', '0.00');
+INSERT INTO `users` (`id`, `username`, `password`, `type`, `email`, `money`, `credit_card_num`, `credit_card_security`) VALUES
+(12, 'admin_user', '$2y$10$d0eS/Y6Vou4fGFmD10NlFejMtIRAJYGEWyKZqw/RWaF3rFhpqgzJ6', 0, 'admin_user@tuffybay.com', '0.00', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -128,12 +130,10 @@ ALTER TABLE `ordered_items`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `returns`
+-- Indexes for table `return_requests`
 --
-ALTER TABLE `returns`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `cascade user update/deletion` (`user_id`),
-  ADD KEY `set to null if inventory item is deleted` (`inventory_id`);
+ALTER TABLE `return_requests`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `shopping_cart_items`
@@ -161,33 +161,22 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `ordered_items`
 --
 ALTER TABLE `ordered_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
--- AUTO_INCREMENT for table `returns`
+-- AUTO_INCREMENT for table `return_requests`
 --
-ALTER TABLE `returns`
+ALTER TABLE `return_requests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `shopping_cart_items`
 --
 ALTER TABLE `shopping_cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `returns`
---
-ALTER TABLE `returns`
-  ADD CONSTRAINT `cascade user update/deletion` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `set to null if inventory item is deleted` FOREIGN KEY (`inventory_id`) REFERENCES `inventory` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -34,7 +34,7 @@ if(!$tuffy_user->is_loggedin())
   }
   else if (isset($_POST['use_credit_card']))
   {
-    if (isset($_SESSION['user']['credit_card_num']))
+    if (isset($_POST['using_account_card']))
     {
       $card_num = $_SESSION['user']['credit_card_num'];
       $last4 = substr($card_num, -4);
@@ -51,11 +51,8 @@ if(!$tuffy_user->is_loggedin())
     //echo $payment_used;
 
     $tuffy_inventory->purchase_cart($_SESSION['user']['id'], $cart, $_POST['total_price'], $payment_used);
-    if (!$tuffy_inventory->not_enough_money)
-    {
-      header("Location: http://" .$_SERVER['SERVER_NAME'] . "/orders.php");
+    header("Location: http://" .$_SERVER['SERVER_NAME'] . "/orders.php");
       exit;
-    }
   }
   else if(isset($_POST['update_quan']))
   {
@@ -118,6 +115,7 @@ if(!$tuffy_user->is_loggedin())
   <form method="post">
   <div id="purchase-btn">
     <input hidden name="total_price" value = "<?php echo $total_price; ?>">
+    <input hidden name="using_account_card" value="1">
     <button <?php if ($not_enough_stock){echo "disabled"; }?> type="submit" name="use_credit_card">Buy with card on account</button>
     <?php 
     $last4display = substr($_SESSION['user']['credit_card_num'], -4);
