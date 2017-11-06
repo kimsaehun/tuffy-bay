@@ -48,6 +48,12 @@
 	    }
 	}
 
+	function display_credit_card($card_num)
+	{
+		$splitted_arr = str_split($card_num, 4);
+		return $splitted_arr;
+	}
+
 	function create_slug($string){
    $slug=preg_replace('/[^A-Za-z0-9-]+/', '-', $string);
    return $slug;
@@ -140,6 +146,7 @@
 	  			$user_row_type = $user_row['type'];
 	  			$user_row_money = $user_row['money'];
 	  			$user_row_email = $user_row['email'];
+	  			$user_row_credit_card_num = $user_row['credit_card_num'];
 
 	  			//password_verify checks the the algo-options and unique salt of $user_row_pass and applies to $password_post
 	  			if(password_verify($password_post, $user_row_pass))
@@ -165,6 +172,7 @@
 	  			$_SESSION['user']['type'] = $user_row_type;
 	  			$_SESSION['user']['money'] = $user_row_money;
 	  			$_SESSION['user']['email'] = $user_row_email;
+	  			$_SESSION['user']['credit_card_num'] = $user_row_credit_card_num;
 	  			$_SESSION['user']['login_time'] = new DateTime("now");	//will use this later in is_loggedin() function
 	  			
 	  			//Cannot have any output before this like echo or print
@@ -181,7 +189,7 @@
 
 			if (isset($_SESSION['user']['id']))
 			{
-				$selectQuery = "SELECT username,money,type,email FROM " .USERS_TABLE. " WHERE id = " . $_SESSION['user']['id'];
+				$selectQuery = "SELECT username,money,type,email,credit_card_num FROM " .USERS_TABLE. " WHERE id = " . $_SESSION['user']['id'];
 	  			$idMatch = $conn->query($selectQuery);
 
 	  			if ($idMatch->num_rows == 1)
@@ -193,6 +201,7 @@
 		  			$_SESSION['user']['type'] = $user_row['type'];
 		  			$_SESSION['user']['money'] = $user_row['money'];
 		  			$_SESSION['user']['email'] = $user_row['email'];
+		  			$_SESSION['user']['credit_card_num'] = $user_row['credit_card_num'];
   					return true;
   				}
 			}
@@ -250,6 +259,18 @@
 		{
 
 			$updateQ = "UPDATE ".USERS_TABLE." SET money = money + '$money_amount' WHERE id = '$user_id'";
+			if ($this->conn->query($updateQ))
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+		function insert_card_info($user_id, $card_num, $sec_code)
+		{
+			$updateQ = "UPDATE ".USERS_TABLE." SET credit_card_num = '$card_num', credit_card_security = '$sec_code' WHERE id = '$user_id'";
+
 			if ($this->conn->query($updateQ))
 			{
 				return true;
@@ -415,7 +436,7 @@
 		public $not_enough_money = false;
 
 		//$items is an array of items with their info, return false if not enough stock
-		function purchase_cart($user_id, $items, $total)
+		function purchase_cart($user_id, $items, $total, $payment_used)
 		{
 			//get user money
 			$selectQ = "SELECT money FROM ".USERS_TABLE." WHERE id = '$user_id'";
@@ -449,7 +470,7 @@
 				$this->conn->query($deleteQ);
 
 				//add to orders table
-				$this->insert_order($user_id, $item);
+				$this->insert_order($user_id, $item, $payment_used);
 
 				//decrease user money
 				$new_user_money = $user_info['money'] - $total;
@@ -461,7 +482,7 @@
 
 
 		//ORDERS
-		function insert_order($user_id, $item)
+		function insert_order($user_id, $item, $payment_used)
 		{
 			$item_id = $item['id'];
 			$item_name = $item['name'];
@@ -473,8 +494,8 @@
 
 
 			$insertQ = "INSERT INTO ".ORDERS_TABLE." 
-						(user_id, inventory_id, name, amount, price, description, date_ordered) 
-						VALUES ('$user_id', '$item_id', '$item_name', '$item_amt', '$item_price', '$item_desc', '$curr_time')";
+						(user_id, inventory_id, name, amount, price, description, date_ordered, payment_used) 
+						VALUES ('$user_id', '$item_id', '$item_name', '$item_amt', '$item_price', '$item_desc', '$curr_time', '$payment_used')";
 
 			$insertResult = $this->conn->query($insertQ);
 		}
@@ -491,6 +512,15 @@
 			}
 
 			return $order_arr;
+		}
+
+		function return_request($order_id)
+		{
+			$updateQ = "UPDATE ".ORDERS_TABLE." SET return_request = 1 WHERE id = '$order_id'";
+			$updateResult = $this->conn->query($updateQ);
+
+			if ($updateResult){return true;}
+			return false;
 		}
 
 		function update_cart_count($user_id, $item_id, $new_amount)

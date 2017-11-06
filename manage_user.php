@@ -40,6 +40,12 @@ else if (isset($_POST['money_to_add']))
 	if ($money_updated){ $msg = "$".$_POST['money_to_add']." has been added to balance"; }
 	else { $msg = "SQL error"; }
 }
+else if (isset($_POST['add_credit_card']))
+{
+	$security_code = $_POST['security_code'];
+    $card_num = $_POST['creditCard1'] . $_POST['creditCard2'] . $_POST['creditCard3'] . $_POST['creditCard4'];
+	$tuffy_user->insert_card_info($_SESSION['user']['id'], $card_num, $security_code);
+}
 
 $title = 'manage user info'; # Enter title of page
 $css_files = array(
@@ -76,6 +82,36 @@ include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_header.phtml';
 </form>
 
 <h2 style="color:red"><?php echo $msg; ?></h2>
+
+<?php if ($_SESSION['user']['credit_card_num'] === null): ?>
+<h3>Add Credit Card</h3>
+<form method="post">
+  Credit Card Number:
+      <input type="number" min="1000" max="9999" name="creditCard1" required/>
+      -
+      <input type="number" min="1000" max="9999" name="creditCard2" required/>
+      -
+      <input type="number" min="1000" max="9999" name="creditCard3" required/>
+      -
+      <input type="number" min="1000" max="9999"  name="creditCard4" required/>
+      <br />
+
+      Security Code: <input type="number" name="security_code">
+      Card Expiry:
+      <input class="inputCard" name="expiry" id="expiry" type="month" required/>
+   
+  <button type="submit" name="add_credit_card">Add card</button>
+</form>
+<?php else: ?>
+<?php $card_splitted = display_credit_card($_SESSION['user']['credit_card_num']); 
+echo "credit info: ";
+	foreach ($card_splitted as $fours)
+	{
+		echo $fours.' ';
+	}
+
+?>
+<?php endif; ?>
 
 <!--user info-->
 <h1>USER INFO</h1>
