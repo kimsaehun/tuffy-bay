@@ -4,7 +4,7 @@
 	<div class="header_top-sec">
 		<div class="top_right">
 			<ul>
-				<li><a href="/index.php">Tuffy Bay</a></li>
+				<li><a href="/index.php">TuffyBay</a></li>
 			</ul>
 		</div>
 		<div class="top_left">
@@ -20,7 +20,7 @@
  <div class="header-bottom">
 	 <div class="container">
 			<div class="logo">
-				<a href="/index.php"><h1>Tuffy Bay</h1></a>
+				<a href="/index.php"><h1>TuffyBay</h1></a>
 			</div>
 		 <!---->
 
