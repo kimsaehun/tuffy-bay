@@ -1,107 +1,159 @@
-<?php 
-	include 'functions.php';
-	$tuffy_inventory = new tuffy_inventory($DB_connection);
-
-	//logging out directs us to index.php (this page) using GET method. Handling it here
-	if($_GET['action'] == "logout" && $tuffy_user->is_loggedin())
-	{
-		$tuffy_user->logout();
-		$msg="logged out";
-	}
-?>
-
 <?php
-$title = 'Tuffy Bay';
-$css_files = array(
-  'bootstrap.min.css',
-  'index.css'
-);
-include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_header.phtml';
+$title = 'TuffyBay';
+$css_files = array();
+include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 ?>
-<header>
-  <!--DEPARTMENT NAVIGATION-->
-  <div role="navigation">
-    <form role="search" accept-charset="utf-8" action="/s/ref=nb_sb_noss" method="GET" name="site-search">
-    <div data-value="search-alias=aps">Search Our Departments</div>
-    <select tabindex="18" title="Search in" name="url" aria-describedby="searchDropdownDescription" data-nav-digest="qX7zOjG0eg7nh/k/d9rgJ/gOeJA" data-nav-selected="0">
-    <option selected="selected" value="search-alias=aps">All Departments</option>
-    <option value="search-alias=appliances">Appliances</option>
-    <option value="search-alias=mobile-apps">Apps &amp; Games</option>
-    <option value="search-alias=arts-crafts">Arts, Crafts &amp; Sewing</option>
-    <option value="search-alias=automotive">Automotive Parts &amp; Accessories</option>
-    <option value="search-alias=baby-products">Baby</option>
-    <option value="search-alias=beauty">Beauty &amp; Personal Care</option>
-    <option value="search-alias=stripbooks">Books</option>
-    <option value="search-alias=popular">CDs &amp; Vinyl</option>
-    <option value="search-alias=mobile">Cell Phones &amp; Accessories</option>
-    <option value="search-alias=fashion">Clothing, Shoes &amp; Jewelry</option>
-    <option value="search-alias=fashion-womens">Women</option>
-    <option value="search-alias=fashion-mens">Men</option>
-    <option value="search-alias=fashion-girls">Girls</option>
-    <option value="search-alias=fashion-boys">Boys</option>
-    <option value="search-alias=collectibles">Collectibles &amp; Fine Art</option>
-    <option value="search-alias=computers">Computers</option>
-    <option value="search-alias=digital-music">Digital Music</option>
-    <option value="search-alias=electronics">Electronics</option>
-    <option value="search-alias=gift-cards">Gift Cards</option>
-    <option value="search-alias=grocery">Grocery &amp; Gourmet Food</option>
-    <option value="search-alias=handmade">Handmade</option>
-    <option value="search-alias=hpc">Health, Household &amp; Baby Care</option>
-    <option value="search-alias=local-services">Home &amp; Business Services</option>
-    <option value="search-alias=garden">Home &amp; Kitchen</option>
-    <option value="search-alias=fashion-luggage">Luggage &amp; Travel Gear</option>
-    <option value="search-alias=luxury-beauty">Luxury Beauty</option>
-    <option value="search-alias=magazines">Magazine Subscriptions</option>
-    <option value="search-alias=movies-tv">Movies &amp; TV</option>
-    <option value="search-alias=mi">Musical Instruments</option>
-    <option value="search-alias=office-products">Office Products</option>
-    <option value="search-alias=pets">Pet Supplies</option>
-    <option value="search-alias=software">Software</option>
-    <option value="search-alias=sporting">Sports &amp; Outdoors</option>
-    <option value="search-alias=tools">Tools &amp; Home Improvement</option>
-    <option value="search-alias=toys-and-games">Toys &amp; Games</option>
-    <option value="search-alias=vehicles">Vehicles</option>
-    <option value="search-alias=videogames">Video Games</option>
-    <option value="search-alias=wine">Wine</option>
-    </select>
 
-
-    <div>
-      <img src="res/img/TuffyBay_Banner_v1.png" width="1326px" height="496px" />
-    </div>
-    <div>
-      <img src="res/img/1072671_pr_disaster-relief_gw_desktop_sidekick_264x170._CB515367141_.png" alt="Donate to Disaster Relief efforts" width="264px" height="170px" /><hr />
-      <div><img src="res/img/Tuffy_computer_small.JPG" width="264px" height="170px" />
-        <div>Get fast, free shipping with TuffyBay</div>
-      </div>
-    </div>
-    </form>
-  </div>
-</header>
-
-<!--ITEMS DISPLAY-->
-<div style="margin: 0px auto; width: 90%">
-	<h1 style="text-align: center">Available Items: </h1>
-	<table class="table">
-		<tr>
-			<th>Name</th>
-			<th># in stock</th>
-			<th>Price</th>
-			<th>Description</th>
-		</tr>
-	<?php $inv_items = $tuffy_inventory->inventory_display(); ?>
-	<?php foreach($inv_items as $item): ?>
-		<tr>
-			<td><?php echo $item['name']?></td>
-			<td><?php echo $item['count']?></td>
-			<td>$<?php echo $item['price']?></td>
-			<td><?php echo $item['description']?></td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
+<div>
+  <img src="/images/TuffyBay_Banner.png" alt="Smiley face" width="100%"/>
 </div>
+
+<div class="welcome">
+	 <div class="container">
+		 <div class="col-md-3 welcome-left">
+			 <h2>Welcome to our site</h2>
+		 </div>
+		 <div class="col-md-9 welcome-right">
+			 <h3>An Original CSUF Online Webstore</h3>
+			 <p>TuffyBay is an electronic commerce website dedicated to selling novelty college supplies to the students, faculty members, and supporters of California State University, Fullerton. By partnering with Student Store, TuffyBay provides a quick and easy way for students and faculty members to purchase college necessities at their own leisure. TuffyBay will provide an attractive design geared towards students. Through TuffyBay, supporters of California State University, Fullerton will now be able to show their support from anywhere within the states.</p>
+		 </div>
+	 </div>
+</div>
+<!---->
+<div class="featured">
+	 <div class="container">
+		 <h3>Featured Products</h3>
+		 <div class="feature-grids">
+			 <div class="col-md-3 feature-grid jewel">
+				 <a href="product.html"><img src="images/f1.jpg" alt=""/>
+					 <div class="arrival-info">
+						 <h4>Jewellerys #1</h4>
+						 <p>Rs 12000</p>
+						 <span class="pric1"><del>Rs 18000</del></span>
+						 <span class="disc">[12% Off]</span>
+					 </div>
+					 <div class="viw">
+						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 </div>
+					 <div class="shrt">
+						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					 </div></a>
+			 </div>
+			 <div class="col-md-3 feature-grid">
+				 <a href="product.html"><img src="images/f2.jpg" alt=""/>
+					 <div class="arrival-info">
+						 <h4>Jewellerys #1</h4>
+						 <p>Rs 68000</p>
+						 <span class="pric1"><del>Rs 70000</del></span>
+						 <span class="disc">[10% Off]</span>
+					 </div>
+					 <div class="viw">
+						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 </div>
+					 <div class="shrt">
+						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					 </div></a>
+			 </div>
+			 <div class="col-md-3 feature-grid jewel">
+				 <a href="product.html"><img src="images/f3.jpg" alt=""/>
+					 <div class="arrival-info">
+						 <h4>Wedding Ceramic Pot </h4>
+						 <p>Rs 1200</p>
+						 <span class="pric1"><del>Rs 2000</del></span>
+						 <span class="disc">[10% Off]</span>
+					 </div>
+					 <div class="viw">
+						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 </div>
+					 <div class="shrt">
+						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					 </div></a>
+			 </div>
+			 <div class="col-md-3 feature-grid">
+				 <a href="product.html"><img src="images/f4.jpg" alt=""/>
+					 <div class="arrival-info">
+						 <h4>Jewellerys #1</h4>
+						 <p>Rs 12000</p>
+						 <span class="pric1"><del>Rs 18000</del></span>
+						 <span class="disc">[12% Off]</span>
+					 </div>
+					 <div class="viw">
+					 <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 </div>
+					 <div class="shrt">
+						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					 </div></a>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+		 <div class="feature-grids">
+			 <div class="col-md-3 feature-grid jewel">
+				 <a href="product.html"><img src="images/p7.jpg" alt=""/>
+					 <div class="arrival-info">
+						 <h4>Jewellerys #1</h4>
+						 <p>Rs 12000</p>
+						 <span class="pric1"><del>Rs 18000</del></span>
+						 <span class="disc">[12% Off]</span>
+					 </div>
+					 <div class="viw">
+						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 </div>
+					 <div class="shrt">
+						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					 </div></a>
+			 </div>
+			 <div class="col-md-3 feature-grid">
+				 <a href="product.html"><img src="images/p11.jpg" alt=""/>
+					 <div class="arrival-info">
+						 <h4>Jewellerys #1</h4>
+						 <p>Rs 12000</p>
+						 <span class="pric1"><del>Rs 18000</del></span>
+						 <span class="disc">[12% Off]</span>
+					 </div>
+					 <div class="viw">
+						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 </div>
+					 <div class="shrt">
+						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					 </div></a>
+			 </div>
+			 <div class="col-md-3 feature-grid jewel">
+				 <a href="product.html"><img src="images/p12.jpg" alt=""/>
+					 <div class="arrival-info">
+						 <h4>Jewellerys #1</h4>
+						 <p>Rs 12000</p>
+						 <span class="pric1"><del>Rs 18000</del></span>
+						 <span class="disc">[12% Off]</span>
+					 </div>
+					 <div class="viw">
+						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 </div>
+					 <div class="shrt">
+						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					 </div></a>
+			 </div>
+			 <div class="col-md-3 feature-grid">
+				 <a href="product.html"><img src="images/f2.jpg" alt=""/>
+					 <div class="arrival-info">
+						 <h4>Jewellerys #1</h4>
+						 <p>Rs 12000</p>
+						 <span class="pric1"><del>Rs 18000</del></span>
+						 <span class="disc">[12% Off]</span>
+					 </div>
+					 <div class="viw">
+						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 </div>
+					 <div class="shrt">
+						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+					 </div></a>
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+<!---->
 
 <?php
 $js_files = array();
-include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_footer.phtml';
+include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_footer.php';
 ?>
