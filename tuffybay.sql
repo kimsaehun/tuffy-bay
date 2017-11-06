@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2017 at 05:17 AM
+-- Generation Time: Nov 06, 2017 at 07:03 AM
 -- Server version: 5.7.17
 -- PHP Version: 5.6.30
 
@@ -39,9 +39,9 @@ CREATE TABLE `inventory` (
 --
 
 INSERT INTO `inventory` (`id`, `name`, `count`, `price`, `description`) VALUES
-(1, 'Kappa pencil', 1, '1.00', 'A #2 pencil with a kappa face on it.'),
-(2, 'fd', 7, '23.00', '12'),
-(7, 'paper', 11, '2.40', 'sometthing');
+(10, 'Pencil', 50, '2.50', 'a pencil'),
+(12, 'Paper', 100, '1.25', 'A piece of paper <br> -made out of the best trees'),
+(13, 'Pen', 150, '0.25', 'A black pen <br> - very good condition');
 
 -- --------------------------------------------------------
 
@@ -61,20 +61,6 @@ CREATE TABLE `ordered_items` (
   `has_arrived` bit(1) NOT NULL DEFAULT b'0',
   `date_ordered` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `ordered_items`
---
-
-INSERT INTO `ordered_items` (`id`, `user_id`, `inventory_id`, `name`, `amount`, `price`, `description`, `date_arrived`, `has_arrived`, `date_ordered`) VALUES
-(1, 1, 2, 'fd', 1, '23.00', '12', NULL, b'0', '2011-05-17 00:00:00'),
-(2, 1, 7, 'paper', 1, '2.40', 'sometthing', NULL, b'1', '2017-11-05 12:52:54'),
-(3, 1, 2, 'fd', 1, '23.00', '12', NULL, b'0', '2017-11-05 18:28:56'),
-(4, 1, 2, 'fd', 1, '23.00', '12', NULL, b'0', '2017-11-05 18:29:32'),
-(5, 1, 2, 'fd', 1, '23.00', '12', NULL, b'0', '2017-11-05 18:43:29'),
-(6, 1, 2, 'fd', 1, '23.00', '12', NULL, b'0', '2017-11-05 18:47:12'),
-(7, 1, 2, 'fd', 1, '23.00', '12', NULL, b'0', '2017-11-05 18:47:36'),
-(8, 1, 2, 'fd', 1, '23.00', '12', NULL, b'0', '2017-11-05 18:48:08');
 
 -- --------------------------------------------------------
 
@@ -102,15 +88,6 @@ CREATE TABLE `shopping_cart_items` (
   `amount` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `shopping_cart_items`
---
-
-INSERT INTO `shopping_cart_items` (`id`, `item_id`, `user_id`, `amount`) VALUES
-(16, 1, 1, 2),
-(17, 7, 1, 3),
-(19, 2, 1, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -131,14 +108,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `type`, `email`, `money`) VALUES
-(1, 'andreadmin', '$2y$10$Oiu0Lm3H1nVichtTG.2Uk.AMGhfdha90lCEDpPpIO.YodHFZwPpSC', 1, 'a', '8.00'),
-(2, 'andre_admin', '$2y$10$L0TMfNqXlF4VR0ZHn1skj.ui4ocQBnQY2ySYbTVY1OGaOq7.FyJpi', 1, 'andre_admin@tuffybay.com', '0.00'),
-(3, 'andre', '$2y$10$UcRrSZI5ouOxNaXIz0kqteUqkreABIglFrS.ur7OrKZFho1IeAK2K', 0, 'andre@gmail.com', '0.00'),
-(4, 'johnsmith86', '$2y$10$AH0x3ELOHk4L9H4DQxXgFOWrhcngDKo2hvRyY/4NhmJ5mdCSVTuom', 0, 'johnsmith86@gmail.com', '0.00'),
-(5, 'john_admin', '$2y$10$uID9WJlYbl947TqXFqLQ/OrqAFMkN.8MaiWoHPuNSl7bpmf8e.d96', 1, 'john_admin@tuffybay.com', '0.00'),
-(6, 'user123', '$2y$10$yjA2K.BRgtISRrW6Xt2cUuXiG0WImV8nr3tniOEN9sPdzJH.eayZe', 0, 'user123@gmail.com', '0.00'),
-(7, 'ayy', '$2y$10$T8K7nXfce411/d7F8XxpX.yph.S8HoSTKMvO4KwaqV0OItOse2Pd6', 0, 'ayy', '0.00'),
-(8, 'fd', '$2y$10$IFy6UO7/xyV6H4ymr/e7vOJe3O50lxy0a2ju1agoFWwyYEgbrepCK', 0, 'fd', '0.00');
+(10, 'admin_user', '$2y$10$eOBIFQMIC7PdbWY/IzKXTusLsphxMI/.eD5L7wLYBlnagPhjK/IEe', 1, 'admin_user@tuffybay.com', '0.00');
 
 --
 -- Indexes for dumped tables
@@ -186,12 +156,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `ordered_items`
 --
 ALTER TABLE `ordered_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `returns`
 --
@@ -201,12 +171,12 @@ ALTER TABLE `returns`
 -- AUTO_INCREMENT for table `shopping_cart_items`
 --
 ALTER TABLE `shopping_cart_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Constraints for dumped tables
 --
