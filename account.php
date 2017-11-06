@@ -77,11 +77,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 					</div>
 					<div>
 						<label>
-							<input placeholder="Mobile:" type="email" tabindex="3" required>
-						</label>
-					</div>
-					<div>
-						<label>
 							<input placeholder="password" type="password" tabindex="4" required>
 						</label>
 					</div>
