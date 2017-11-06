@@ -7,7 +7,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 <div class="login_sec">
   <div class="container">
     <ol class="breadcrumb">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li class="active">Login</li>
     </ol>
     <h2>Login</h2>
@@ -19,7 +19,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
           <h5>Password:</h5>
           <input type="password" value="">
           <input type="submit" value="Login">
-          <a class="acount-btn" href="account.html">Create an Account</a>
+          <a class="acount-btn" href="account.php">Create an Account</a>
       </form>
     </div>
     <div class="clearfix"></div>
