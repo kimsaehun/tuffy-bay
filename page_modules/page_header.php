@@ -9,7 +9,7 @@
 		</div>
 		<div class="top_left">
 			<ul>
-				<li class="top_link"><a href="login.html">My Account</a></li>
+				<li class="top_link"><a href="login.php">My Account</a></li>
 			</ul>
 		</div>
 			<div class="clearfix"> </div>
@@ -31,9 +31,9 @@
 						<div class="col1 me-one">
 							<h4>Shop</h4>
 							<ul>
-								<li><a href="product.html">Category 1</a></li>
-								<li><a href="product.html">Category 2</a></li>
-								<li><a href="product.html">Category 3</a></li>
+								<li><a href="product.php">Category 1</a></li>
+								<li><a href="product.php">Category 2</a></li>
+								<li><a href="product.php">Category 3</a></li>
 							</ul>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 		 </div>
 		 <!---->
 		 <div class="cart box_1">
-			 <a href="checkout.html">
+			 <a href="checkout.php">
 				<h3> <div class="total">
 				<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>)</div>
 				<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></h3>
