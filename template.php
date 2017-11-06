@@ -1,16 +1,12 @@
 <?php
-$title = ''; # Enter title of page
-$css_files = array(
-  # put css files here
-);
-include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_header.phtml';
+$title = 'Tuffy Bay';
+$css_files = array();
+include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 ?>
 <!--
   Page Contents go in here
 -->
 <?php
-$js_files = array(
-  # put js files here
-);
-include $_SERVER['DOCUMENT_ROOT'] . 'php/phtml/html_footer.phtml';
+$js_files = array();
+include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_footer.php';
 ?>
