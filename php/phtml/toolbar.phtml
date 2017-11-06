@@ -1,8 +1,11 @@
+<?php 
+	$add_money_url = "http://".$_SERVER['SERVER_NAME']."/manage_user.php";
+	$logout_get_url = "http://" .$_SERVER['SERVER_NAME']. "?action=logout";
+?>
 
 <div id="toolbar">
 	<!--LEFT SIDE OF NAVBAR-->
   	<a href="index.php">Home</a>
-  	<a href="/cart.php">Cart</a>
 
   	<!--RIGHT SIDE OF NAVBAR-->
   	<span style="position: absolute;top: 0;right: 0;">
@@ -13,6 +16,8 @@
 	<?php else: //if user is logged in ?>
 
 	<!--case: logged in-->
+	<a href="/cart.php">Cart</a> | 
+  	<a href="/orders.php">Orders</a> | 
 	<a href="/user_page.php">
 		<?php
 			echo $_SESSION['user']['username'];
@@ -21,8 +26,9 @@
 				echo "(admin)";
 			}
 		?>
-	</a>|
-	<a href="<?php echo "http://" .$_SERVER['SERVER_NAME']. "?action=logout"; ?>">LOGOUT</a>
+	</a>| 
+	<?php echo "Balance: <a href=".$add_money_url.">$".$_SESSION['user']['money']."</a> | ";?>
+	<a href="<?php echo $logout_get_url; ?>">LOGOUT</a>
 	<?php endif; ?>
 	</span>
 </div>

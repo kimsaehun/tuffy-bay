@@ -92,7 +92,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_header.phtml';
 	<?php $inv_items = $tuffy_inventory->inventory_display(); ?>
 	<?php foreach($inv_items as $item): ?>
 		<tr>
-			<td><?php echo $item['name']?></td>
+			<td><a href="/item_page.php?itemid=<?php echo $item['id'];?>"><?php echo $item['name']?></a></td>
 			<td><?php echo $item['count']?></td>
 			<td>$<?php echo $item['price']?></td>
 			<td><?php echo $item['description']?></td>
