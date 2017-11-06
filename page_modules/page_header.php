@@ -38,7 +38,12 @@
 						</div>
 					</div>
 				</li>
-				<li class="grid"><a>Search Bar</a></li>
+				<li class="grid">
+			    <form method="post">
+			        <input type="text" name="search_input">
+			        <button type="submit" name="search_item">SEARCH</button>
+			    </form>
+				</li>
 			</ul>
 			<div class="clearfix"> </div>
 		 </div>
