@@ -343,6 +343,22 @@
 
 		}
 
+		//TODO (#3): improve searching algorithm
+		function search_item($item_name)
+		{
+			$selectQ = "SELECT * FROM ".INVENTORY_TABLE." WHERE name = '$item_name'";
+			$selectResult = $this->conn->query($selectQ);
+
+			if ($selectResult->num_rows == 0){return null;}
+
+			$search_results = array();
+			while($table_row = $selectResult->fetch_assoc())
+			{
+				array_push($search_results, $table_row);
+			}
+			return $search_results;
+		}
+
 		function add_to_cart($inventory_id, $user_id, $count)
 		{
 			//check if its already in cart

@@ -18,6 +18,15 @@ $css_files = array(
 );
 include $_SERVER['DOCUMENT_ROOT'] . '/php/phtml/html_header.phtml';
 ?>
+
+<!--SEARCH BAR-->
+<div class="row" align="center">
+    <form action = "search_display.php" method="post">
+        <input type="text" name="search_input">
+        <button type="submit" name="search_item">SEARCH</button>
+    </form>
+</div>
+
 <header>
   <!--DEPARTMENT NAVIGATION-->
   <div role="navigation">
