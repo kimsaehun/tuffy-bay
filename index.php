@@ -25,7 +25,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 		 <h3>Featured Products</h3>
 		 <div class="feature-grids">
 			 <div class="col-md-3 feature-grid jewel">
-				 <a href="product.html"><img src="images/f1.jpg" alt=""/>
+				 <a href="product.php"><img src="images/f1.jpg" alt=""/>
 					 <div class="arrival-info">
 						 <h4>Jewellerys #1</h4>
 						 <p>Rs 12000</p>
@@ -33,14 +33,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						 <span class="disc">[12% Off]</span>
 					 </div>
 					 <div class="viw">
-						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href="product.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					 </div></a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.html"><img src="images/f2.jpg" alt=""/>
+				 <a href="product.php"><img src="images/f2.jpg" alt=""/>
 					 <div class="arrival-info">
 						 <h4>Jewellerys #1</h4>
 						 <p>Rs 68000</p>
@@ -48,14 +48,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						 <span class="disc">[10% Off]</span>
 					 </div>
 					 <div class="viw">
-						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href="product.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					 </div></a>
 			 </div>
 			 <div class="col-md-3 feature-grid jewel">
-				 <a href="product.html"><img src="images/f3.jpg" alt=""/>
+				 <a href="product.php"><img src="images/f3.jpg" alt=""/>
 					 <div class="arrival-info">
 						 <h4>Wedding Ceramic Pot </h4>
 						 <p>Rs 1200</p>
@@ -63,14 +63,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						 <span class="disc">[10% Off]</span>
 					 </div>
 					 <div class="viw">
-						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href="product.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					 </div></a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.html"><img src="images/f4.jpg" alt=""/>
+				 <a href="product.php"><img src="images/f4.jpg" alt=""/>
 					 <div class="arrival-info">
 						 <h4>Jewellerys #1</h4>
 						 <p>Rs 12000</p>
@@ -78,17 +78,17 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						 <span class="disc">[12% Off]</span>
 					 </div>
 					 <div class="viw">
-					 <a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+					 <a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href="product.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					 </div></a>
 			 </div>
 			 <div class="clearfix"></div>
 		 </div>
 		 <div class="feature-grids">
 			 <div class="col-md-3 feature-grid jewel">
-				 <a href="product.html"><img src="images/p7.jpg" alt=""/>
+				 <a href="product.php"><img src="images/p7.jpg" alt=""/>
 					 <div class="arrival-info">
 						 <h4>Jewellerys #1</h4>
 						 <p>Rs 12000</p>
@@ -96,14 +96,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						 <span class="disc">[12% Off]</span>
 					 </div>
 					 <div class="viw">
-						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href="product.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					 </div></a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.html"><img src="images/p11.jpg" alt=""/>
+				 <a href="product.php"><img src="images/p11.jpg" alt=""/>
 					 <div class="arrival-info">
 						 <h4>Jewellerys #1</h4>
 						 <p>Rs 12000</p>
@@ -111,14 +111,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						 <span class="disc">[12% Off]</span>
 					 </div>
 					 <div class="viw">
-						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href="product.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					 </div></a>
 			 </div>
 			 <div class="col-md-3 feature-grid jewel">
-				 <a href="product.html"><img src="images/p12.jpg" alt=""/>
+				 <a href="product.php"><img src="images/p12.jpg" alt=""/>
 					 <div class="arrival-info">
 						 <h4>Jewellerys #1</h4>
 						 <p>Rs 12000</p>
@@ -126,14 +126,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						 <span class="disc">[12% Off]</span>
 					 </div>
 					 <div class="viw">
-						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href="product.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					 </div></a>
 			 </div>
 			 <div class="col-md-3 feature-grid">
-				 <a href="product.html"><img src="images/f2.jpg" alt=""/>
+				 <a href="product.php"><img src="images/f2.jpg" alt=""/>
 					 <div class="arrival-info">
 						 <h4>Jewellerys #1</h4>
 						 <p>Rs 12000</p>
@@ -141,10 +141,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						 <span class="disc">[12% Off]</span>
 					 </div>
 					 <div class="viw">
-						<a href="product.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
+						<a href="product.php"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Quick View</a>
 					 </div>
 					 <div class="shrt">
-						<a href="product.html"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
+						<a href="product.php"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Shortlist</a>
 					 </div></a>
 			 </div>
 			 <div class="clearfix"></div>
