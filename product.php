@@ -7,13 +7,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 <div class="product-model">
 <div class="container">
    <ol class="breadcrumb">
-   <li><a href="index.html">Home</a></li>
+   <li><a href="index.php">Home</a></li>
    <li class="active">Products</li>
   </ol>
    <h2>Our Products</h2>
   <div class="col-md-9 product-model-sec">
 
-       <a href="single.html"><div class="product-grid love-grid">
+       <a href="single.php"><div class="product-grid love-grid">
          <div class="more-product"><span> </span></div>
          <div class="product-img b-link-stripe b-animate-go  thickbox">
            <img src="images/p12.jpg" class="img-responsive" alt=""/>
