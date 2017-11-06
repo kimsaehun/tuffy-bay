@@ -64,7 +64,25 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 			 <h4 class="last-price">TOTAL</h4>
 			 <span class="total final" id="final-price">450.00</span>
 			 <div class="clearfix"></div>
-			 <a class="order" href="#">Place Order</a>
+			 Use a credit card(not on account):
+			<form method="post">
+			  Credit Card Number:
+			      <input type="number" min="1000" max="9999" name="creditCard1" required/>
+			      -
+			      <input type="number" min="1000" max="9999" name="creditCard2" required/>
+			      -
+			      <input type="number" min="1000" max="9999" name="creditCard3" required/>
+			      -
+			      <input type="number" min="1000" max="9999"  name="creditCard4" required/>
+			      <br />
+
+			      Security Code: <input type="number" name="security_code">
+			      Card Expiry:
+			      <input class="inputCard" name="expiry" id="expiry" type="month" required/>
+
+			<button type="submit" name="use_credit_card">pay with card</button>
+			<a class="order" href="#">Place Order</a>
+			</form>
 	 </div>
 </div>
 
