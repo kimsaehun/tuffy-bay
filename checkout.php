@@ -7,7 +7,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 <div class="checkout">
 	 <div class="container">
 		 <ol class="breadcrumb">
-		  <li><a href="index.html">Home</a></li>
+		  <li><a href="index.php">Home</a></li>
 		  <li class="active">Cart</li>
 		 </ol>
 		 <div class="col-md-9 product-price1">
@@ -41,11 +41,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/page_modules/html_header.php';
 						  </ul>
 						  <ul class="cart-header">
 						   <div class="close1"> </div>
-							<li class="ring-in"><a href="single.html" ><img src="images/f1.jpg" class="img-responsive" alt=""></a>
+							<li class="ring-in"><a href="single.php" ><img src="images/f1.jpg" class="img-responsive" alt=""></a>
 							</li>
 							<li><span>Woo Dress</span></li>
 							<li><span>$ 60.00</span></li>
-							<li> <a href="single.html" class="add-cart cart-check">ADD TO CART</a></li>
+							<li> <a href="single.php" class="add-cart cart-check">ADD TO CART</a></li>
 							<div class="clearfix"> </div>
 							</ul>
 					 </div>
