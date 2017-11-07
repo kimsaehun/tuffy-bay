@@ -39,7 +39,7 @@
 					</div>
 				</li>
 				<li class="grid">
-			    <form method="post">
+			    <form method="post" action="/search_display.php">
 			        <input type="text" name="search_input">
 			        <button type="submit" name="search_item">SEARCH</button>
 			    </form>
