@@ -35,6 +35,8 @@ else if (isset($_POST['delete_item']))
 <a href="<?php echo "http://" .$_SERVER['SERVER_NAME']. "?action=logout"; ?>">LOGOUT</a>
 |
 <a href="<?php echo "http://" .$_SERVER['SERVER_NAME']; ?>">Home</a>
+|
+<a href="<?php echo "http://" .$_SERVER['SERVER_NAME']. "/manage_user.php"; ?>">manage account</a>
 <ul>
     <li>
         <h5>Social Media</h5>
